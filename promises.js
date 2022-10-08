@@ -1,6 +1,14 @@
 /* ============================== Phase 1 ============================== */
 /* -------------------------- exploring async -------------------------- */
-
+function num1() {
+  return 1;
+}
+async function num2() {
+  return 2;
+}
+console.log('num1', num1());
+console.log('num2', num2());
+num2().then(res => console.log(res));
 // Your code here
 
 /* ============================== Phase 2 ============================== */
