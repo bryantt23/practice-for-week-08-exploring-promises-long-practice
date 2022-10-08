@@ -15,6 +15,11 @@ num2().then(res => console.log(res));
 /* -------------------------- exploring await -------------------------- */
 
 // Your code here
+async function waiting() {
+  const value = await num2();
+  console.log('waiting', value);
+}
+waiting();
 
 /* ============================== Phase 3 ============================== */
 /* --------------------- creating a custom Promise --------------------- */
