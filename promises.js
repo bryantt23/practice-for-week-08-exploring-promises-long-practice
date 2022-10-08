@@ -50,7 +50,9 @@ new Promise(resolve => {
 /* ------------------- turn setTimeout into a Promise ------------------ */
 
 // Your code here
-
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 /* ============================== Phase 6 ============================== */
 /* -------------------- exploring reject and .catch -------------------- */
 
