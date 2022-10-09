@@ -57,13 +57,43 @@ function wait(ms) {
 /* -------------------- exploring reject and .catch -------------------- */
 
 // Your code here
+const tryRandomPromise = random =>
+  new Promise((resolve, reject) => {
+    if (random > 0.5) {
+      resolve('success');
+    } else {
+      reject('random error');
+    }
+  });
+
+for (let i = 1; i < 10; i++) {
+  const random = Math.random();
+  wait(2000 + random * 1000)
+    .then(() => tryRandomPromise(random))
+    .then(result => console.log('random try #', i, result))
+    .catch(error => console.error('random try #', i, error));
+}
 
 /* ============================== Phase 7 ============================== */
 /* ---------------- exploring async/await and try/catch ---------------- */
 
 // Your code here
+const tryTryAgain = async i => {
+  const random = Math.random();
 
+  try {
+    const res = await tryRandomPromise(random);
+    console.log('random again #', i, res);
+  } catch (err) {
+    console.error('random again #', i, err);
+  }
+};
+
+for (let i = 1; i < 10; i++) {
+  tryTryAgain(i);
+}
 /* ============================== Phase 8 ============================== */
 /* -------------------- Promises are asynchronous! --------------------- */
 
 // Your code here
+console.log('END OF PROGRAM');
